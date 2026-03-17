@@ -51,10 +51,8 @@ React hook that detects the user's location on mount.
 ```tsx
 const { data, loading, error, source, refresh } = useLocation({
   language: 'en',           // Locality language (ISO 639-1). Default: 'en'
-  ipOnly: false,            // Skip GPS, use IP only. Default: false
   manual: false,            // Don't fetch on mount. Default: false
   timeout: 10000,           // GPS timeout in ms. Default: 10000
-  enableHighAccuracy: true, // High accuracy GPS. Default: true
 });
 ```
 
@@ -117,13 +115,6 @@ console.log(data.countryName); // detected from IP
 const { data } = useLocation({ language: 'ja' });
 // data.countryName → "日本"
 // data.city → "東京"
-```
-
-### IP Only (No GPS Prompt)
-
-```tsx
-// Useful when you don't want to prompt the user
-const { data } = useLocation({ ipOnly: true });
 ```
 
 ### Manual Trigger

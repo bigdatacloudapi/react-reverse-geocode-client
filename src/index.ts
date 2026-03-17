@@ -41,14 +41,10 @@ export interface LocationData {
 export interface UseLocationOptions {
   /** Language for locality names (ISO 639-1). Default: "en" */
   language?: string;
-  /** Skip GPS and use IP geolocation only. Default: false */
-  ipOnly?: boolean;
   /** Don't fetch automatically on mount. Use refresh() instead. Default: false */
   manual?: boolean;
   /** GPS timeout in milliseconds. Default: 10000 */
   timeout?: number;
-  /** Use high accuracy GPS (slower but more precise). Default: true */
-  enableHighAccuracy?: boolean;
 }
 
 export interface UseLocationResult {
@@ -91,10 +87,8 @@ export function useLocation(
 ): UseLocationResult {
   const {
     language = "en",
-    ipOnly = false,
     manual = false,
     timeout = 10000,
-    enableHighAccuracy = true,
   } = options;
 
   const [data, setData] = useState<LocationData | null>(null);
@@ -111,12 +105,12 @@ export function useLocation(
       let lng: number | undefined;
 
       // Try GPS first (unless ipOnly)
-      if (!ipOnly && typeof navigator !== "undefined" && navigator.geolocation) {
+      if (typeof navigator !== "undefined" && navigator.geolocation) {
         try {
           const position = await new Promise<GeolocationPosition>(
             (resolve, reject) => {
               navigator.geolocation.getCurrentPosition(resolve, reject, {
-                enableHighAccuracy,
+                enableHighAccuracy: true,
                 timeout,
                 maximumAge: 60000,
               });
@@ -153,7 +147,7 @@ export function useLocation(
     } finally {
       setLoading(false);
     }
-  }, [language, ipOnly, timeout, enableHighAccuracy]);
+  }, [language, timeout]);
 
   useEffect(() => {
     if (!manual) {
