@@ -1,0 +1,51 @@
+{
+  "name": "@bigdatacloudapi/react-reverse-geocode-client",
+  "version": "1.0.0",
+  "description": "React hook for free reverse geocoding — get city, country, and locality from GPS coordinates with automatic IP geolocation fallback. No API key needed.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "react-hook",
+    "geolocation",
+    "reverse-geocoding",
+    "geocoding",
+    "location",
+    "gps",
+    "city",
+    "country",
+    "ip-geolocation",
+    "bigdatacloud",
+    "free",
+    "no-api-key",
+    "vibe-coding"
+  ],
+  "author": "BigDataCloud Pty Ltd",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bigdatacloudapi/react-reverse-geocode-client"
+  },
+  "homepage": "https://www.bigdatacloud.com",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "typescript": "^5.7.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16"
+  }
+}
