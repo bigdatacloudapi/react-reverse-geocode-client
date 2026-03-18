@@ -13,10 +13,10 @@ npm install @bigdatacloudapi/react-reverse-geocode-client
 ## Quick Start
 
 ```tsx
-import { useLocation } from '@bigdatacloudapi/react-reverse-geocode-client';
+import { useGeoLocation } from '@bigdatacloudapi/react-reverse-geocode-client';
 
 function App() {
-  const { data, loading, error, source } = useLocation();
+  const { data, loading, error, source } = useGeoLocation();
 
   if (loading) return <p>Detecting location...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -34,6 +34,8 @@ function App() {
 
 That's it. No API key, no account, no configuration.
 
+> **Note:** `useLocation` is also available as an alias for backward compatibility.
+
 ## How It Works
 
 1. **GPS first** — requests the browser's geolocation (user sees a permission prompt)
@@ -44,7 +46,7 @@ The response includes city, country, region, postcode, timezone, and detailed ad
 
 ## API
 
-### `useLocation(options?)`
+### `useGeoLocation(options?)`
 
 React hook that detects the user's location on mount.
 
@@ -112,7 +114,7 @@ console.log(data.countryName); // detected from IP
 
 ```tsx
 // Get location names in Japanese
-const { data } = useLocation({ language: 'ja' });
+const { data } = useGeoLocation({ language: 'ja' });
 // data.countryName → "日本"
 // data.city → "東京"
 ```
@@ -121,7 +123,7 @@ const { data } = useLocation({ language: 'ja' });
 
 ```tsx
 function SearchButton() {
-  const { data, loading, refresh } = useLocation({ manual: true });
+  const { data, loading, refresh } = useGeoLocation({ manual: true });
 
   return (
     <button onClick={refresh} disabled={loading}>
@@ -137,7 +139,7 @@ The hook is client-side only — it checks for `navigator` before accessing geol
 
 ```tsx
 'use client';
-import { useLocation } from '@bigdatacloudapi/react-reverse-geocode-client';
+import { useGeoLocation } from '@bigdatacloudapi/react-reverse-geocode-client';
 ```
 
 ## Why BigDataCloud?

@@ -82,7 +82,7 @@ export interface UseLocationResult {
  * }
  * ```
  */
-export function useLocation(
+export function useGeoLocation(
   options: UseLocationOptions = {}
 ): UseLocationResult {
   const {
@@ -191,4 +191,5 @@ export async function reverseGeocode(
   return res.json();
 }
 
-export default useLocation;
+export { useGeoLocation as useLocation };
+export default useGeoLocation;
