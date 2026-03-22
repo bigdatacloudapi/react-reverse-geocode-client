@@ -68,19 +68,6 @@ const { data, loading, error, source, refresh } = useLocation({
 | `source` | `'gps' \| 'ip' \| null` | How location was determined |
 | `refresh` | `() => void` | Manually trigger a new detection |
 
-### `reverseGeocode(coords?, language?)`
-
-Standalone async function — works outside React components.
-
-```ts
-import { reverseGeocode } from '@bigdatacloudapi/react-reverse-geocode-client';
-
-// With coordinates
-const data = await reverseGeocode({ latitude: 48.8566, longitude: 2.3522 });
-console.log(data.city); // "Paris"
-
-console.log(data.countryName); // detected from IP
-```
 
 ### Response Data
 

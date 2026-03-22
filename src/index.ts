@@ -158,34 +158,7 @@ export function useGeoLocation(
   return { data, loading, error, source, refresh: fetchLocation };
 }
 
-/**
- * Standalone function (non-hook) for one-off reverse geocoding.
- * Works outside React components.
- *
- * @example
- * ```ts
- * import { reverseGeocode } from '@bigdatacloudapi/react-reverse-geocode-client';
- *
- * // With coordinates
- * const data = await reverseGeocode({ latitude: -34.9285, longitude: 138.6007 });
- *
- * // IP fallback (no coordinates)
- * const data = await reverseGeocode();
- * ```
- */
-export async function reverseGeocode(
-  coords: { latitude: number; longitude: number },
-  language = "en"
-): Promise<LocationData> {
-  const url = `${API_URL}?localityLanguage=${encodeURIComponent(language)}&latitude=${coords.latitude}&longitude=${coords.longitude}`;
 
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error(`BigDataCloud API returned ${res.status}`);
-  }
-
-  return res.json();
-}
 
 export { useGeoLocation as useLocation };
 export default useGeoLocation;
