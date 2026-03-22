@@ -104,7 +104,7 @@ export function useGeoLocation(
       let lat: number | undefined;
       let lng: number | undefined;
 
-      // Try GPS first (unless ipOnly)
+      // Try GPS first
       if (typeof navigator !== "undefined" && navigator.geolocation) {
         try {
           const position = await new Promise<GeolocationPosition>(
@@ -174,14 +174,10 @@ export function useGeoLocation(
  * ```
  */
 export async function reverseGeocode(
-  coords?: { latitude: number; longitude: number },
+  coords: { latitude: number; longitude: number },
   language = "en"
 ): Promise<LocationData> {
-  let url = `${API_URL}?localityLanguage=${encodeURIComponent(language)}`;
-
-  if (coords) {
-    url += `&latitude=${coords.latitude}&longitude=${coords.longitude}`;
-  }
+  const url = `${API_URL}?localityLanguage=${encodeURIComponent(language)}&latitude=${coords.latitude}&longitude=${coords.longitude}`;
 
   const res = await fetch(url);
   if (!res.ok) {

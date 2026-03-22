@@ -1,6 +1,6 @@
 {
   "name": "@bigdatacloudapi/react-reverse-geocode-client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React hook for free reverse geocoding — get city, country, and locality from GPS coordinates with automatic IP geolocation fallback. No API key needed.",
   "main": "dist/index.js",
   "module": "dist/index.js",

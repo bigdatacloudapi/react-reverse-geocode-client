@@ -79,8 +79,6 @@ import { reverseGeocode } from '@bigdatacloudapi/react-reverse-geocode-client';
 const data = await reverseGeocode({ latitude: 48.8566, longitude: 2.3522 });
 console.log(data.city); // "Paris"
 
-// IP fallback (no coordinates)
-const data = await reverseGeocode();
 console.log(data.countryName); // detected from IP
 ```
 
