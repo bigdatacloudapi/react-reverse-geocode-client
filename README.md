@@ -136,9 +136,20 @@ import { useGeoLocation } from '@bigdatacloudapi/react-reverse-geocode-client';
 - ✅ **Fast** — sub-millisecond response times, global CDN
 - ✅ **Accurate** — powered by [patented IP geolocation technology](https://www.bigdatacloud.com/insights/ip-geolocation-accuracy-report)
 
-## Fair Use
+## Fair Use Policy
 
-This hook uses BigDataCloud's free client-side API, which is for **client-side use only** (browser/mobile). For server-side or testing, use the [server-side API](https://www.bigdatacloud.com/reverse-geocoding/reverse-geocode-to-city-api) with a [free API key](https://www.bigdatacloud.com/login). See the [fair use policy](https://www.bigdatacloud.com/support/fair-use-policy-for-free-client-side-reverse-geocoding-api).
+This library uses BigDataCloud's free client-side reverse geocoding API (`api.bigdatacloud.net`), governed by the [Fair Use Policy](https://www.bigdatacloud.com/docs/article/fair-use-policy-for-free-client-side-reverse-geocoding-api).
+
+**This API is for resolving the current, real-time location of the calling device only.**
+
+Key rules:
+- **Client-side only** — requests must originate directly from the device being located, not from a server or automated script
+- **Real-time coordinates only** — only live GPS/WiFi coordinates obtained at the moment of the call are permitted. Pre-stored, cached, or externally-sourced coordinates are strictly **not allowed**
+- **User consent required** — coordinates must be obtained via platform geolocation APIs with the user's explicit permission
+
+Violations result in a **402 error and your IP address being banned**.
+
+If you need to geocode coordinates you already have, or need server-side geocoding, use the [Reverse Geocoding API](https://www.bigdatacloud.com/docs/reverse-geocoding) with a free API key instead — it includes 50,000 free queries per month.
 
 ## Need More?
 
